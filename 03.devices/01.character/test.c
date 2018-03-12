@@ -104,6 +104,7 @@ int main(int argc, char *argv[])
         if (ret <= 0) {
             printf("read error %d\n", key);
         }
+        printf("Read Key %d\n", key);
         
         if (key >= 5 && key <= 8) {
             char buf[2];
@@ -117,6 +118,8 @@ int main(int argc, char *argv[])
             ret = write(fd, buf, sizeof(buf));
             if (ret <= 0) {
                 printf("write error %d\n", ret);
+            } else {
+                printf("set LED %d state %d\n", buf[0], led[offset]);
             }
         }
     }
